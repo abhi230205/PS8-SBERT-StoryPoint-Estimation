@@ -1,0 +1,30 @@
+pair_id,source,target,same_repository,semantic_similarity,cnn_test_mae_mean,baseline_median_mae,gain_vs_median,dev_sp_median,test_sp_median,spearman_cnn,spearman_cnn_p,spearman_ridge,cnn_pred_std,true_sp_std,final_epochs,median_baseline_val_mae
+1,XD,MESOS,False,0.69,1.405,1.414,0.009,3.0,3.0,0.344,0.0,0.36,0.989,2.08,4,2.007
+2,Usergrid,MXNet,True,0.525,1.162,1.16,-0.002,3.0,3.0,0.315,0.125,0.047,0.006,1.716,6,1.033
+3,Titanium Mobile Platform,Usergrid,False,0.501,2.127,1.269,-0.858,3.0,3.0,-0.173,0.162,-0.016,1.879,1.828,15,3.146
+4,The Titanium SDK,Alloy Framework,True,0.668,2.649,2.542,-0.107,5.0,3.0,0.136,0.355,0.088,1.221,1.582,4,3.11
+5,Software Cloud,Appcelerator Daemon,False,0.2,7.181,7.548,0.367,3.0,8.0,0.114,0.474,0.171,0.951,9.451,20,2.312
+7,Nexus,Command-Line Interface,False,0.542,1.881,1.881,0.0,1.0,2.0,0.169,0.202,0.29,0.004,2.422,2,0.773
+9,Mule APIkit,Titanium Mobile Platform,False,0.583,3.31,3.309,-0.001,3.0,4.0,0.319,0.0,0.29,0.001,4.874,1,2.027
+11,Moodle,Atlassian Software Server,False,0.542,9.54,9.551,0.011,13.0,3.0,-0.174,0.232,0.097,0.002,2.283,2,16.856
+13,MESOS,Clover,False,0.386,1.566,1.5,-0.066,3.0,2.0,-0.02,0.896,0.307,0.749,1.49,26,1.886
+14,Lyrasis Dura Cloud,Confluence Cloud,False,0.487,2.034,2.303,0.269,1.0,3.0,0.087,0.629,-0.055,0.463,2.271,5,1.042
+15,Lsstcorp Data management,Confluence Server,False,0.304,1.291,0.896,-0.395,3.0,2.5,0.07,0.498,0.116,1.28,1.178,11,6.067
+17,Jira Cloud,FishEye,True,0.521,3.068,3.069,0.001,4.0,0.5,-0.326,0.052,-0.264,0.001,0.949,1,1.051
+18,Java driver,Jira Cloud,False,0.374,2.5,2.5,0.0,1.0,4.0,-0.049,0.728,0.0,0.0,1.663,20,0.0
+21,FishEye,DotNetNuke Platform,False,0.528,0.932,0.931,-0.002,1.0,2.0,0.22,0.0,0.276,0.006,1.58,4,0.976
+22,Fabric,Blockchain Explorer,True,0.732,1.057,1.082,0.025,2.0,2.0,0.427,0.0,0.151,0.823,1.443,6,2.022
+23,Evergreen,Fabric,False,0.651,1.111,0.864,-0.248,1.0,2.0,-0.231,0.015,-0.17,0.793,0.933,7,0.726
+24,DotNetNuke Platform,Indy Node,False,0.416,1.448,1.45,0.002,2.0,3.0,0.171,0.075,0.155,0.008,1.737,2,0.923
+25,DataCass,Indy SDK,False,0.485,1.928,1.873,-0.055,3.0,3.0,0.038,0.673,0.043,0.179,2.601,10,2.28
+26,Crowd,Sawtooth,False,0.408,1.147,1.145,-0.002,1.0,2.0,0.119,0.128,0.168,0.078,1.266,9,0.798
+27,Confluence Server,Lsstcorp Data management,False,0.304,3.996,4.12,0.124,3.0,2.0,0.191,0.0,0.286,0.386,10.254,23,1.187
+28,Confluence Cloud,Lyrasis Dura Cloud,False,0.487,1.317,1.31,-0.007,3.0,2.0,0.421,0.0,0.123,0.001,0.895,5,2.114
+29,Compass,MongoDB Core Server,True,0.505,1.35,1.35,-0.0,3.0,2.0,0.149,0.105,0.298,0.001,1.122,8,1.21
+30,Command-Line Interface,Compass,False,0.38,1.193,1.112,-0.081,3.0,3.0,0.203,0.07,0.073,0.606,1.557,9,1.71
+31,Clover,C++ driver (MongoDB),False,0.418,0.897,0.897,-0.0,2.0,1.0,0.098,0.58,0.587,0.001,0.751,2,2.514
+32,C++ driver (Appcelerator),Evergreen,False,0.443,4.749,6.101,1.352,8.0,2.0,0.057,0.099,0.246,1.403,1.145,13,4.465
+35,Bamboo,Mule,False,0.559,2.018,2.013,-0.004,2.0,3.0,-0.026,0.515,0.245,0.0,2.911,2,1.159
+36,Atlassian Software Server,Mule APIkit,False,0.274,2.322,2.321,-0.001,3.0,2.0,-0.141,0.21,0.27,0.003,3.285,3,2.18
+37,Appcelerator Studio,Nexus,False,0.5,3.432,2.955,-0.477,5.0,2.0,0.232,0.0,0.276,0.81,1.566,3,2.049
+39,Alloy Framework,XD,False,0.297,1.66,1.656,-0.004,3.0,3.0,0.151,0.001,0.264,0.0,2.191,4,1.502

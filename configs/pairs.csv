@@ -1,0 +1,40 @@
+pair_id,source,target,source_slug,target_slug
+1,XD,MESOS,XD,MESOS
+2,Usergrid,MXNet,USERGRID,MXNET
+3,Titanium Mobile Platform,Usergrid,TIDOC,USERGRID
+4,The Titanium SDK,Alloy Framework,TIMOB,ALOY
+5,Software Cloud,Appcelerator Daemon,JSWCLOUD,DAEMON
+6,Sawtooth,Appcelerator Studio,STL,TISTUD
+7,Nexus,Command-Line Interface,NEXUS,CLI
+8,MXNet,The Titanium SDK,MXNET,TIMOB
+9,Mule APIkit,Titanium Mobile Platform,APIKIT,TIDOC
+10,Mule,C++ driver (Appcelerator),MULE,APSTUD
+11,Moodle,Atlassian Software Server,MDL,JSWSERVER
+12,MongoDB Core Server,Bamboo,SERVER,BAM
+13,MESOS,Clover,MESOS,CLOV
+14,Lyrasis Dura Cloud,Confluence Cloud,DURACLOUD,CONFCLOUD
+15,Lsstcorp Data management,Confluence Server,DM,CONFSERVER
+16,Jira Server,Crowd,JRASERVER,CWD
+17,Jira Cloud,FishEye,JRACLOUD,FE
+18,Java driver,Jira Cloud,JAVA,JRACLOUD
+19,Indy SDK,Jira Server,IS,JRASERVER
+20,Indy Node,Software Cloud,INDY,JSWCLOUD
+21,FishEye,DotNetNuke Platform,FE,DNN
+22,Fabric,Blockchain Explorer,FAB,BE
+23,Evergreen,Fabric,EVG,FAB
+24,DotNetNuke Platform,Indy Node,DNN,INDY
+25,DataCass,Indy SDK,DATACASS,IS
+26,Crowd,Sawtooth,CWD,STL
+27,Confluence Server,Lsstcorp Data management,CONFSERVER,DM
+28,Confluence Cloud,Lyrasis Dura Cloud,CONFCLOUD,DURACLOUD
+29,Compass,MongoDB Core Server,COMPASS,SERVER
+30,Command-Line Interface,Compass,CLI,COMPASS
+31,Clover,C++ driver (MongoDB),CLOV,CXX
+32,C++ driver (Appcelerator),Evergreen,APSTUD,EVG
+33,C++ driver (MongoDB),Java driver,CXX,JAVA
+34,Blockchain Explorer,Moodle,BE,MDL
+35,Bamboo,Mule,BAM,MULE
+36,Atlassian Software Server,Mule APIkit,JSWSERVER,APIKIT
+37,Appcelerator Studio,Nexus,TISTUD,NEXUS
+38,Appcelerator Daemon,DataCass,DAEMON,DATACASS
+39,Alloy Framework,XD,ALOY,XD

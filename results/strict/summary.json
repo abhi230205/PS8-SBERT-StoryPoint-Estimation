@@ -1,0 +1,151 @@
+{
+  "n_pairs": 29,
+  "n_test_issues": 8482,
+  "cnn": {
+    "val_mae_mean_over_pairs": 2.1241874804570227,
+    "val_mae_std_over_pairs": 2.492678587956159,
+    "val_mdae_mean_over_pairs": 1.3653210738609574,
+    "test_mae_mean_over_pairs": 2.423132133269915,
+    "test_mdae_mean_over_pairs": 2.0900089096748964,
+    "test_mae_median_over_pairs": 1.8813315104630035,
+    "pooled_test_mae": 3.0897582419908827,
+    "pooled_test_mdae": 1.5891501666666665,
+    "seed_std_mean_over_pairs": 0.04381863367734855
+  },
+  "median_baseline": {
+    "test_mae_mean_over_pairs": 2.417910485307783,
+    "test_mdae_mean_over_pairs": 2.1551724137931036,
+    "pooled": [
+      3.245363699599151,
+      2.0
+    ]
+  },
+  "mean_baseline": {
+    "test_mae_mean_over_pairs": 3.039226261329381,
+    "test_mdae_mean_over_pairs": 2.6738406378647377,
+    "pooled": [
+      3.419917232598444,
+      2.2269585
+    ]
+  },
+  "ridge": {
+    "test_mae_mean_over_pairs": 2.8931999067683374,
+    "test_mdae_mean_over_pairs": 2.539257682602981,
+    "pooled": [
+      3.335813669190285,
+      1.95751415
+    ]
+  },
+  "statistics": [
+    {
+      "vs": "Median baseline",
+      "MAE": {
+        "cnn_wins": 11,
+        "ties": 0,
+        "cnn_losses": 18,
+        "mean_diff": 0.005221647962132184,
+        "wilcoxon_p": 0.2842625416815281,
+        "A12": 0.5338882282996433,
+        "A12_magnitude": "negligible"
+      },
+      "MdAE": {
+        "cnn_wins": 23,
+        "ties": 0,
+        "cnn_losses": 6,
+        "mean_diff": -0.06516350411820686,
+        "wilcoxon_p": 0.014758598059415817,
+        "A12": 0.4090368608799049,
+        "A12_magnitude": "small"
+      }
+    },
+    {
+      "vs": "Mean baseline",
+      "MAE": {
+        "cnn_wins": 19,
+        "ties": 0,
+        "cnn_losses": 10,
+        "mean_diff": -0.6160941280594664,
+        "wilcoxon_p": 0.04312055930495262,
+        "A12": 0.41854934601664684,
+        "A12_magnitude": "small"
+      },
+      "MdAE": {
+        "cnn_wins": 18,
+        "ties": 0,
+        "cnn_losses": 11,
+        "mean_diff": -0.5838317281898411,
+        "wilcoxon_p": 0.14936558529734612,
+        "A12": 0.4637336504161712,
+        "A12_magnitude": "negligible"
+      }
+    },
+    {
+      "vs": "SBERT whole-issue vector + ridge",
+      "MAE": {
+        "cnn_wins": 17,
+        "ties": 0,
+        "cnn_losses": 12,
+        "mean_diff": -0.47006777349842327,
+        "wilcoxon_p": 0.07975950092077255,
+        "A12": 0.4304399524375743,
+        "A12_magnitude": "small"
+      },
+      "MdAE": {
+        "cnn_wins": 17,
+        "ties": 0,
+        "cnn_losses": 12,
+        "mean_diff": -0.44924877292808446,
+        "wilcoxon_p": 0.12065461277961731,
+        "A12": 0.4518430439952438,
+        "A12_magnitude": "negligible"
+      }
+    }
+  ],
+  "generalisation_gap_mean": 0.2989446528128924,
+  "corr_val_test_mae": 0.7108277105876719,
+  "corr_abs_median_sp_shift_vs_test_mae": 0.8944228779438959,
+  "corr_semantic_similarity_vs_gain": -0.1394792722498448,
+  "same_repository_pairs": 5,
+  "gain_same_repository_mean": -0.0166416230017858,
+  "gain_cross_repository_mean": -0.0028424864955376807,
+  "pairs_cnn_beats_median_mae": 11,
+  "median_baseline_val_mae_mean_over_pairs": 2.3835554958664424,
+  "val_rel_gain_vs_median_mean": 0.07823297126625103,
+  "val_rel_gain_vs_median_median": 0.06637083311667158,
+  "val_pairs_cnn_beats_median": 25,
+  "test_rel_gain_vs_median_mean": -0.047191070027492836,
+  "test_rel_gain_vs_median_median": -0.0009658182562344705,
+  "val_test_wilcoxon_p_rel_gain": 4.76837158203125e-06,
+  "spearman_cnn_median_over_pairs": 0.11860194140814487,
+  "spearman_cnn_mean_over_pairs": 0.0996490321842143,
+  "spearman_cnn_positive_significant_pairs": 8,
+  "spearman_ridge_median_over_pairs": 0.1680609826004855,
+  "spearman_cnn_pooled": 0.026259054774729396,
+  "pairs_near_constant_cnn": 16,
+  "pairs_abs_gain_below_0_02": 16,
+  "median_final_epochs": 5.0,
+  "pairs_final_epochs_le_2": 7,
+  "cnn_pred_std_median": 0.07821150289071124,
+  "true_sp_std_median": 1.6627404735414788,
+  "best_pair": {
+    "pair_id": 31,
+    "source": "Clover",
+    "target": "C++ driver (MongoDB)",
+    "cnn_test_mae_mean": 0.8973461634972516,
+    "cnn_test_mdae_mean": 0.9995936155319214
+  },
+  "worst_pair": {
+    "pair_id": 11,
+    "source": "Moodle",
+    "target": "Atlassian Software Server",
+    "cnn_test_mae_mean": 9.540059887633031,
+    "cnn_test_mdae_mean": 9.989452044169107
+  },
+  "selected_configs": {
+    "lr=0.001, dropout=0.2": 12,
+    "lr=0.001, dropout=0.5": 8,
+    "lr=0.0003, dropout=0.2": 7,
+    "lr=0.0003, dropout=0.5": 2
+  },
+  "secondary_cv_mae_mean_over_pairs": 2.100656275545713
+}

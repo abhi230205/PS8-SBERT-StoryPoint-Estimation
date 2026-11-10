@@ -1,0 +1,162 @@
+{
+  "n_pairs": 39,
+  "n_test_issues": 10354,
+  "cnn": {
+    "val_mae_mean_over_pairs": 1.8160634011241894,
+    "val_mae_std_over_pairs": 1.519902493556089,
+    "val_mdae_mean_over_pairs": 1.1926404832265316,
+    "val_mdae_std_over_pairs": 0.8259660181105418,
+    "test_mae_mean_over_pairs": 2.2076989652831074,
+    "test_mdae_mean_over_pairs": 1.8518724316715174,
+    "test_mae_median_over_pairs": 1.8735639998253355,
+    "pooled_test_mae": 3.0044118612001802,
+    "pooled_test_mdae": 1.8008554000000003,
+    "seed_std_mean_over_pairs": 0.05295662571044902
+  },
+  "median_baseline": {
+    "test_mae_mean_over_pairs": 2.164621998008744,
+    "test_mdae_mean_over_pairs": 1.8846153846153846,
+    "pooled": [
+      3.108510227931234,
+      2.0
+    ]
+  },
+  "mean_baseline": {
+    "test_mae_mean_over_pairs": 2.559672127462488,
+    "test_mdae_mean_over_pairs": 2.189526218634385,
+    "pooled": [
+      3.1897637852037857,
+      1.9051768999999998
+    ]
+  },
+  "ridge": {
+    "test_mae_mean_over_pairs": 2.558989869124637,
+    "test_mdae_mean_over_pairs": 2.1269653179706673,
+    "pooled": [
+      3.1905136830640335,
+      1.85926985
+    ]
+  },
+  "statistics": [
+    {
+      "vs": "Median baseline",
+      "MAE": {
+        "cnn_wins": 15,
+        "ties": 0,
+        "cnn_losses": 24,
+        "mean_diff": 0.0430769672743642,
+        "wilcoxon_p": 0.585392383949511,
+        "A12": 0.52465483234714,
+        "A12_magnitude": "negligible"
+      },
+      "MdAE": {
+        "cnn_wins": 25,
+        "ties": 0,
+        "cnn_losses": 14,
+        "mean_diff": -0.0327429529438671,
+        "wilcoxon_p": 0.13472781783275423,
+        "A12": 0.46548323471400394,
+        "A12_magnitude": "negligible"
+      }
+    },
+    {
+      "vs": "Mean baseline",
+      "MAE": {
+        "cnn_wins": 22,
+        "ties": 0,
+        "cnn_losses": 17,
+        "mean_diff": -0.35197316217938046,
+        "wilcoxon_p": 0.17113355053879786,
+        "A12": 0.44970414201183434,
+        "A12_magnitude": "negligible"
+      },
+      "MdAE": {
+        "cnn_wins": 16,
+        "ties": 0,
+        "cnn_losses": 23,
+        "mean_diff": -0.33765378696286774,
+        "wilcoxon_p": 0.7666987905977294,
+        "A12": 0.4983563445101907,
+        "A12_magnitude": "negligible"
+      }
+    },
+    {
+      "vs": "SBERT whole-issue vector + ridge",
+      "MAE": {
+        "cnn_wins": 24,
+        "ties": 0,
+        "cnn_losses": 15,
+        "mean_diff": -0.35129090384152933,
+        "wilcoxon_p": 0.014285169563663658,
+        "A12": 0.44904667981591057,
+        "A12_magnitude": "negligible"
+      },
+      "MdAE": {
+        "cnn_wins": 22,
+        "ties": 0,
+        "cnn_losses": 17,
+        "mean_diff": -0.2750928862991495,
+        "wilcoxon_p": 0.10449585793321603,
+        "A12": 0.45956607495069035,
+        "A12_magnitude": "negligible"
+      }
+    }
+  ],
+  "generalisation_gap_mean": 0.39163556415891815,
+  "corr_val_test_mae": 0.370594031645753,
+  "corr_abs_median_sp_shift_vs_test_mae": 0.756003019249081,
+  "corr_semantic_similarity_vs_gain": -0.18833705835310585,
+  "same_repository_pairs": 7,
+  "gain_same_repository_mean": -0.01811027300896567,
+  "gain_cross_repository_mean": -0.04853843164492012,
+  "pairs_cnn_beats_median_mae": 15,
+  "median_baseline_val_mae_mean_over_pairs": 1.9966277828287513,
+  "val_rel_gain_vs_median_mean": 0.07045632190572239,
+  "val_rel_gain_vs_median_median": 0.0640083411764792,
+  "val_pairs_cnn_beats_median": 34,
+  "test_rel_gain_vs_median_mean": -0.043823056450761,
+  "test_rel_gain_vs_median_median": -0.0005102808593857943,
+  "val_test_wilcoxon_p_rel_gain": 4.53077518614009e-07,
+  "spearman_cnn_median_over_pairs": 0.0982835243338318,
+  "spearman_cnn_mean_over_pairs": 0.1015090734354756,
+  "spearman_cnn_positive_significant_pairs": 12,
+  "spearman_ridge_median_over_pairs": 0.1680609826004855,
+  "spearman_cnn_pooled": -0.00892762400754811,
+  "pairs_near_constant_cnn": 19,
+  "pairs_abs_gain_below_0_02": 20,
+  "median_final_epochs": 7.0,
+  "pairs_final_epochs_le_2": 5,
+  "cnn_pred_std_median": 0.29310218154519824,
+  "true_sp_std_median": 1.7212992289999804,
+  "best_pair": {
+    "pair_id": 33,
+    "source": "C++ driver (MongoDB)",
+    "target": "Java driver",
+    "cnn_test_mae_mean": 0.28637035782375037,
+    "cnn_test_mdae_mean": 0.0009055733680725098
+  },
+  "worst_pair": {
+    "pair_id": 5,
+    "source": "Software Cloud",
+    "target": "Appcelerator Daemon",
+    "cnn_test_mae_mean": 7.180705252147856,
+    "cnn_test_mdae_mean": 4.592278957366943
+  },
+  "selected_configs": {
+    "lr=0.001, dropout=0.5": 16,
+    "lr=0.001, dropout=0.2": 14,
+    "lr=0.0003, dropout=0.2": 6,
+    "lr=0.0003, dropout=0.5": 3
+  },
+  "secondary_cv_mae_mean_over_pairs": 1.7641930987980083,
+  "compare_strict": {
+    "n_common_pairs": 29,
+    "main_test_mae_mean": 2.2226142954329338,
+    "strict_test_mae_mean": 2.423132133269915,
+    "main_test_mdae_mean": 1.8483023311214886,
+    "strict_test_mdae_mean": 2.0900089096748964,
+    "strict_median_baseline_mae_mean": 2.417910485307783,
+    "pairs_where_compare_better": 6,
+    "wilcoxon_p": 0.15400869335862263
+  }
+}

@@ -1,0 +1,58 @@
+# PS-8 | SBERT sentence embeddings | Cross-project | Temporal (chronological) ordering
+# Every number reported in results/ is produced from this file.
+
+project:
+  id: PS-8
+  title: "Evaluate SBERT-based sentence embeddings for predicting story points of later issues in a target project using chronological ordering"
+  github_url: https://github.com/abhi230205/PS8-SBERT-StoryPoint-Estimation
+
+paths:
+  raw_zip: data/raw/TAWOS.sql.zip
+  issues: data/processed/issues.parquet          # cleaned issues of the 39 projects
+  embeddings_dir: data/embeddings                # one .npz per project
+  pairs: configs/pairs.csv                       # the 39 assigned source -> target pairs
+  results_dir: results
+  models_dir: models
+
+data:
+  min_story_point: 0.5      # issues with a missing or zero story point are dropped
+  max_story_point: 100      # obvious data-entry outliers (> 100) are dropped
+  dedupe: true              # identical (project, title, description, story point) rows are kept once
+
+text:
+  max_sentences: 24         # title + up to 23 description sentences (covers ~95 % of issues)
+  min_sentence_chars: 3
+  max_sentence_chars: 1000
+
+sbert:
+  model_name: sentence-transformers/all-mpnet-base-v2
+  max_seq_length: 384
+  batch_size: 256
+  normalize_embeddings: false
+  dtype: float16            # storage precision of the cached embeddings
+
+split:
+  test_frac: 0.20           # most recent 20 % of the TARGET project = held-out test set
+  n_folds: 5                # five-fold validation on the SOURCE (development) data
+  cv_scheme: blocked        # primary: contiguous chronological blocks, 4 train / 1 validation
+  secondary_cv_scheme: forward_chaining   # reported for the selected config only
+  strict_chronology: false  # true -> also drop source issues created after the target test start
+
+train:
+  seeds: [42, 43, 44]       # final refit repeated with 3 seeds; CV uses the first seed
+  batch_size: 64
+  max_epochs: 60
+  patience: 8
+  loss: l1                  # optimise MAE directly
+  target_transform: none    # none | log1p
+  grad_clip: 1.0
+
+model:                      # fixed CNN settings
+  kernel_size: 3
+  hidden: 64
+
+grid:                       # hyper-parameters selected per pair by mean 5-fold validation MAE
+  channels: [[256, 128, 64]]
+  lr: [0.001, 0.0003]
+  dropout: [0.2, 0.5]
+  weight_decay: [0.0001]

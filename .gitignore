@@ -1,0 +1,23 @@
+# environments
+.venv/
+__pycache__/
+*.pyc
+
+# data (re-created by the pipeline; the raw dump is 637 MB)
+data/raw/
+data/interim/
+data/processed/
+data/embeddings/
+
+# trained weights (re-created by run_experiments); one demo model is kept
+models/*
+!models/demo/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# raw console captures
+results/*_stdout.log

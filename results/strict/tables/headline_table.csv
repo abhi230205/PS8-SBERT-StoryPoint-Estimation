@@ -1,0 +1,5 @@
+Representation,Model configuration,5-fold validation MAE (mean ± std over pairs),5-fold validation MdAE (mean ± std over pairs),Test MAE (mean over 39 pairs),Test MdAE (mean over 39 pairs),Test MAE (pooled issues),Test MdAE (pooled issues)
+SBERT sentence embeddings,"all-mpnet-base-v2 (frozen, 768-d) per sentence, title + ≤23 description sentences -> 3-layer 1-D CNN; L1 loss, AdamW; lr/dropout tuned per pair by 5-fold chronological CV",2.12 ± 2.49,1.37 ± 1.39,2.42,2.09,3.09 ± 0.02,1.59 ± 0.03
+SBERT whole-issue vector (reference),"same SBERT model, one vector per issue -> ridge regression (alpha by the same CV)",2.47 ± 3.17,-,2.89,2.54,3.34,1.96
+No text (baseline),Median story point of the source project,-,-,2.42,2.16,3.25,2.00
+No text (baseline),Mean story point of the source project,-,-,3.04,2.67,3.42,2.23

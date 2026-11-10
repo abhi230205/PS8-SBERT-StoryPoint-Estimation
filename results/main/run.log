@@ -1,0 +1,41 @@
+2026-11-10 17:57:29 | INFO | device=cuda (NVIDIA GeForce RTX 4080 Laptop GPU), strict=False
+2026-11-10 17:58:07 | INFO | pair  1 XD -> MESOS: dev=2408 test=527 | CV MAE 1.86±0.35 | TEST CNN MAE 1.40 MdAE 0.99 | median-baseline MAE 1.41 | 37s
+2026-11-10 17:58:14 | INFO | pair  2 Usergrid -> MXNet: dev=336 test=25 | CV MAE 0.95±0.18 | TEST CNN MAE 1.16 MdAE 0.99 | median-baseline MAE 1.16 | 8s
+2026-11-10 17:58:41 | INFO | pair  3 Titanium Mobile Platform -> Usergrid: dev=1165 test=67 | CV MAE 2.63±0.56 | TEST CNN MAE 2.09 MdAE 1.55 | median-baseline MAE 1.27 | 26s
+2026-11-10 17:59:35 | INFO | pair  4 The Titanium SDK -> Alloy Framework: dev=3512 test=48 | CV MAE 2.81±0.71 | TEST CNN MAE 2.71 MdAE 2.49 | median-baseline MAE 2.54 | 54s
+2026-11-10 17:59:42 | INFO | pair  5 Software Cloud -> Appcelerator Daemon: dev=233 test=42 | CV MAE 2.15±1.06 | TEST CNN MAE 7.18 MdAE 4.59 | median-baseline MAE 7.55 | 7s
+2026-11-10 17:59:56 | INFO | pair  6 Sawtooth -> Appcelerator Studio: dev=831 test=536 | CV MAE 0.94±0.14 | TEST CNN MAE 3.20 MdAE 3.02 | median-baseline MAE 3.18 | 14s
+2026-11-10 18:00:21 | INFO | pair  7 Nexus -> Command-Line Interface: dev=1395 test=59 | CV MAE 0.80±0.23 | TEST CNN MAE 1.70 MdAE 1.01 | median-baseline MAE 1.88 | 24s
+2026-11-10 18:00:25 | INFO | pair  8 MXNet -> The Titanium SDK: dev=123 test=702 | CV MAE 1.72±0.66 | TEST CNN MAE 3.07 MdAE 2.01 | median-baseline MAE 3.06 | 5s
+2026-11-10 18:00:37 | INFO | pair  9 Mule APIkit -> Titanium Mobile Platform: dev=405 test=233 | CV MAE 1.53±0.31 | TEST CNN MAE 4.11 MdAE 2.70 | median-baseline MAE 3.31 | 12s
+2026-11-10 18:01:24 | INFO | pair 10 Mule -> C++ driver (Appcelerator): dev=3041 test=105 | CV MAE 2.40±0.30 | TEST CNN MAE 3.24 MdAE 2.18 | median-baseline MAE 3.31 | 47s
+2026-11-10 18:01:50 | INFO | pair 11 Moodle -> Atlassian Software Server: dev=1246 test=49 | CV MAE 8.70±2.87 | TEST CNN MAE 3.84 MdAE 2.96 | median-baseline MAE 2.33 | 25s
+2026-11-10 18:02:03 | INFO | pair 12 MongoDB Core Server -> Bamboo: dev=599 test=91 | CV MAE 1.25±0.45 | TEST CNN MAE 0.80 MdAE 0.78 | median-baseline MAE 0.74 | 13s
+2026-11-10 18:02:51 | INFO | pair 13 MESOS -> Clover: dev=2636 test=45 | CV MAE 1.28±0.16 | TEST CNN MAE 1.32 MdAE 1.05 | median-baseline MAE 1.50 | 48s
+2026-11-10 18:03:03 | INFO | pair 14 Lyrasis Dura Cloud -> Confluence Cloud: dev=564 test=33 | CV MAE 0.91±0.35 | TEST CNN MAE 2.03 MdAE 1.77 | median-baseline MAE 2.30 | 12s
+2026-11-10 18:09:01 | INFO | pair 15 Lsstcorp Data management -> Confluence Server: dev=17894 test=96 | CV MAE 4.56±0.79 | TEST CNN MAE 1.24 MdAE 0.97 | median-baseline MAE 0.90 | 358s
+2026-11-10 18:09:08 | INFO | pair 16 Jira Server -> Crowd: dev=275 test=34 | CV MAE 1.17±0.07 | TEST CNN MAE 2.57 MdAE 2.99 | median-baseline MAE 2.57 | 7s
+2026-11-10 18:09:15 | INFO | pair 17 Jira Cloud -> FishEye: dev=261 test=36 | CV MAE 1.07±0.07 | TEST CNN MAE 3.06 MdAE 3.49 | median-baseline MAE 3.07 | 7s
+2026-11-10 18:09:20 | INFO | pair 18 Java driver -> Jira Cloud: dev=103 test=52 | CV MAE 0.06±0.12 | TEST CNN MAE 2.50 MdAE 3.00 | median-baseline MAE 2.50 | 5s
+2026-11-10 18:09:33 | INFO | pair 19 Indy SDK -> Jira Server: dev=632 test=55 | CV MAE 1.33±0.21 | TEST CNN MAE 1.57 MdAE 1.16 | median-baseline MAE 1.60 | 13s
+2026-11-10 18:09:41 | INFO | pair 20 Indy Node -> Software Cloud: dev=547 test=47 | CV MAE 1.32±0.22 | TEST CNN MAE 1.87 MdAE 1.01 | median-baseline MAE 1.87 | 8s
+2026-11-10 18:09:45 | INFO | pair 21 FishEye -> DotNetNuke Platform: dev=182 test=375 | CV MAE 0.90±0.30 | TEST CNN MAE 0.93 MdAE 1.00 | median-baseline MAE 0.93 | 4s
+2026-11-10 18:09:59 | INFO | pair 22 Fabric -> Blockchain Explorer: dev=550 test=73 | CV MAE 1.40±0.73 | TEST CNN MAE 1.05 MdAE 0.69 | median-baseline MAE 1.08 | 14s
+2026-11-10 18:11:42 | INFO | pair 23 Evergreen -> Fabric: dev=4174 test=110 | CV MAE 0.67±0.04 | TEST CNN MAE 0.78 MdAE 0.95 | median-baseline MAE 0.72 | 103s
+2026-11-10 18:12:16 | INFO | pair 24 DotNetNuke Platform -> Indy Node: dev=1876 test=109 | CV MAE 0.88±0.29 | TEST CNN MAE 1.45 MdAE 1.00 | median-baseline MAE 1.45 | 33s
+2026-11-10 18:12:22 | INFO | pair 25 DataCass -> Indy SDK: dev=161 test=126 | CV MAE 2.02±0.47 | TEST CNN MAE 1.93 MdAE 1.76 | median-baseline MAE 1.87 | 6s
+2026-11-10 18:12:28 | INFO | pair 26 Crowd -> Sawtooth: dev=172 test=166 | CV MAE 0.77±0.22 | TEST CNN MAE 1.15 MdAE 0.98 | median-baseline MAE 1.14 | 6s
+2026-11-10 18:12:42 | INFO | pair 27 Confluence Server -> Lsstcorp Data management: dev=479 test=3579 | CV MAE 1.12±0.38 | TEST CNN MAE 4.02 MdAE 1.54 | median-baseline MAE 4.12 | 14s
+2026-11-10 18:12:48 | INFO | pair 28 Confluence Cloud -> Lyrasis Dura Cloud: dev=167 test=113 | CV MAE 1.53±0.74 | TEST CNN MAE 1.30 MdAE 0.99 | median-baseline MAE 1.31 | 6s
+2026-11-10 18:12:55 | INFO | pair 29 Compass -> MongoDB Core Server: dev=401 test=120 | CV MAE 1.18±0.17 | TEST CNN MAE 1.35 MdAE 2.00 | median-baseline MAE 1.35 | 7s
+2026-11-10 18:13:03 | INFO | pair 30 Command-Line Interface -> Compass: dev=294 test=80 | CV MAE 1.57±0.28 | TEST CNN MAE 1.25 MdAE 1.01 | median-baseline MAE 1.11 | 8s
+2026-11-10 18:13:07 | INFO | pair 31 Clover -> C++ driver (MongoDB): dev=224 test=34 | CV MAE 2.51±2.17 | TEST CNN MAE 0.90 MdAE 1.00 | median-baseline MAE 0.90 | 4s
+2026-11-10 18:13:21 | INFO | pair 32 C++ driver (Appcelerator) -> Evergreen: dev=525 test=835 | CV MAE 3.92±1.06 | TEST CNN MAE 4.75 MdAE 5.00 | median-baseline MAE 6.10 | 14s
+2026-11-10 18:13:26 | INFO | pair 33 C++ driver (MongoDB) -> Java driver: dev=170 test=21 | CV MAE 0.34±0.13 | TEST CNN MAE 0.29 MdAE 0.00 | median-baseline MAE 0.29 | 5s
+2026-11-10 18:13:35 | INFO | pair 34 Blockchain Explorer -> Moodle: dev=367 test=249 | CV MAE 1.02±0.21 | TEST CNN MAE 1.50 MdAE 1.96 | median-baseline MAE 1.51 | 8s
+2026-11-10 18:13:41 | INFO | pair 35 Bamboo -> Mule: dev=454 test=608 | CV MAE 1.16±0.56 | TEST CNN MAE 2.02 MdAE 1.01 | median-baseline MAE 2.01 | 6s
+2026-11-10 18:13:49 | INFO | pair 36 Atlassian Software Server -> Mule APIkit: dev=246 test=81 | CV MAE 1.94±0.49 | TEST CNN MAE 2.32 MdAE 2.00 | median-baseline MAE 2.32 | 8s
+2026-11-10 18:14:30 | INFO | pair 37 Appcelerator Studio -> Nexus: dev=2681 test=279 | CV MAE 2.00±0.83 | TEST CNN MAE 3.24 MdAE 3.13 | median-baseline MAE 2.96 | 41s
+2026-11-10 18:14:38 | INFO | pair 38 Appcelerator Daemon -> DataCass: dev=210 test=32 | CV MAE 5.07±0.98 | TEST CNN MAE 3.54 MdAE 3.51 | median-baseline MAE 3.53 | 8s
+2026-11-10 18:14:43 | INFO | pair 39 Alloy Framework -> XD: dev=238 test=482 | CV MAE 1.38±0.21 | TEST CNN MAE 1.66 MdAE 2.00 | median-baseline MAE 1.66 | 4s
+2026-11-10 18:14:43 | INFO | done: 39 pairs -> C:\Users\abhir\PS8-SBERT-StoryPoint-Estimation\results\main

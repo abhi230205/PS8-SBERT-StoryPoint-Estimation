@@ -1,0 +1,80 @@
+{
+  "config": {
+    "project": {
+      "id": "PS-8",
+      "title": "Evaluate SBERT-based sentence embeddings for predicting story points of later issues in a target project using chronological ordering"
+    },
+    "paths": {
+      "raw_zip": "data/raw/TAWOS.sql.zip",
+      "issues": "data/processed/issues.parquet",
+      "embeddings_dir": "data/embeddings",
+      "pairs": "configs/pairs.csv",
+      "results_dir": "results",
+      "models_dir": "models"
+    },
+    "data": {
+      "min_story_point": 0.5,
+      "max_story_point": 100,
+      "dedupe": true
+    },
+    "text": {
+      "max_sentences": 24,
+      "min_sentence_chars": 3,
+      "max_sentence_chars": 1000
+    },
+    "sbert": {
+      "model_name": "sentence-transformers/all-mpnet-base-v2",
+      "max_seq_length": 384,
+      "batch_size": 256,
+      "normalize_embeddings": false,
+      "dtype": "float16"
+    },
+    "split": {
+      "test_frac": 0.2,
+      "n_folds": 5,
+      "cv_scheme": "blocked",
+      "secondary_cv_scheme": "forward_chaining",
+      "strict_chronology": false
+    },
+    "train": {
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "batch_size": 64,
+      "max_epochs": 60,
+      "patience": 8,
+      "loss": "l1",
+      "target_transform": "none",
+      "grad_clip": 1.0
+    },
+    "model": {
+      "kernel_size": 3,
+      "hidden": 64
+    },
+    "grid": {
+      "channels": [
+        [
+          256,
+          128,
+          64
+        ]
+      ],
+      "lr": [
+        0.001,
+        0.0003
+      ],
+      "dropout": [
+        0.2,
+        0.5
+      ],
+      "weight_decay": [
+        0.0001
+      ]
+    },
+    "_config_path": "C:\\Users\\abhir\\PS8-SBERT-StoryPoint-Estimation\\configs\\config.yaml"
+  },
+  "strict": true,
+  "n_pairs": 29
+}

@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PS-8 Project Report – Group 1</title>
+<style>
+  :root { --ink: #111; --ink2: #444; --rule: #bdbdbd; --head: #f0f0f0; --accent: #1f4e8c; }
+  @page { size: A4; margin: 20mm 18mm 20mm 18mm;
+          @bottom-center { content: counter(page); font-family: Cambria, Georgia, serif; font-size: 9pt; color: #555; } }
+  @page :first { @bottom-center { content: none; } }
+  html, body { background: #fff; }
+  body { font-family: Cambria, Georgia, "Times New Roman", serif; color: var(--ink); font-size: 11pt; line-height: 1.5; margin: 0; }
+  h1, h2, h3 { font-family: Cambria, Georgia, serif; color: var(--ink); }
+  h2 { font-size: 15pt; margin: 22pt 0 8pt; break-after: avoid; }
+  h3 { font-size: 12pt; margin: 14pt 0 5pt; break-after: avoid; }
+  p { margin: 0 0 8pt; text-align: justify; }
+  ul, ol { margin: 0 0 8pt; padding-left: 18pt; }
+  li { margin-bottom: 3pt; }
+  code { font-family: Consolas, "Courier New", monospace; font-size: 9.5pt; }
+  pre { font-family: Consolas, "Courier New", monospace; font-size: 9pt; background: #f6f6f6; border: 1px solid #ddd;
+        padding: 8pt 10pt; white-space: pre-wrap; break-inside: avoid; }
+  a { color: var(--accent); text-decoration: none; }
+  table { border-collapse: collapse; width: 100%; margin: 6pt 0 4pt; font-size: 10pt; break-inside: auto; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { border: 1px solid var(--rule); padding: 4pt 6pt; vertical-align: top; text-align: left; }
+  th { background: var(--head); font-weight: bold; }
+  td.num { white-space: nowrap; }
+  .tcap, figcaption { font-size: 9.5pt; color: var(--ink2); text-align: center; margin: 4pt 0 14pt; }
+  figure { margin: 10pt 0 6pt; text-align: center; break-inside: avoid; }
+  figure img { max-width: 100%; }
+  .box { border: 1px solid var(--rule); background: #fafafa; padding: 8pt 12pt; margin: 8pt 0 12pt; break-inside: avoid; }
+  .box p:last-child { margin: 0; }
+
+  /* title page */
+  .title-page { height: 250mm; display: flex; flex-direction: column; align-items: center; text-align: center; break-after: page; }
+  .tp-course { font-size: 12pt; letter-spacing: .08em; text-transform: uppercase; margin-top: 18mm; }
+  .tp-kind { font-size: 11pt; color: var(--ink2); margin-top: 4pt; }
+  .tp-title { font-size: 22pt; font-weight: bold; line-height: 1.25; margin: 26mm 6mm 8pt; }
+  .tp-ps { font-size: 12pt; color: var(--ink2); margin-bottom: 22mm; }
+  .tp-by { font-size: 11pt; margin-bottom: 6pt; }
+  .tp-members { width: 70%; font-size: 11pt; }
+  .tp-members td, .tp-members th { text-align: left; }
+  .tp-foot { margin-top: auto; font-size: 10.5pt; line-height: 1.7; }
+
+  .toc { list-style: none; padding-left: 0; }
+  .toc li { margin-bottom: 2pt; }
+  .toc .sub { padding-left: 16pt; color: var(--ink2); }
+
+  /* simple diagrams */
+  .flow { display: flex; align-items: center; justify-content: center; gap: 4pt; margin: 8pt 0 4pt; font-size: 9.5pt; flex-wrap: nowrap; break-inside: avoid; }
+  .flow .st { border: 1px solid #7a93b8; background: #eef3fa; border-radius: 4px; padding: 5pt 6pt; text-align: center; min-width: 52pt; }
+  .flow .ar { color: #666; }
+  .split { margin: 8pt 0 4pt; font-size: 9.5pt; break-inside: avoid; }
+  .split .lab { margin: 6pt 0 2pt; color: var(--ink2); }
+  .bar { display: flex; height: 20pt; border: 1px solid #888; }
+  .bar div { display: flex; align-items: center; justify-content: center; border-right: 1px solid #888; }
+  .bar div:last-child { border-right: 0; }
+  .b-unused { background: #e6e6e6; }
+  .b-test { background: #f4c7a8; font-weight: bold; }
+  .b-fold { background: #cfe0f5; }
+  .b-val { background: #8fb5e6; font-weight: bold; }
+  table.keep { break-inside: avoid; }
+  .appendix table { font-size: 8.6pt; }
+  .appendix th, .appendix td { padding: 2.5pt 4pt; }
+</style>
+</head>
+<body>
+
+<!-- ============================== TITLE PAGE ============================== -->
+<section class="title-page">
+  <div class="tp-course">Natural Language Processing</div>
+  <div class="tp-kind">Course Project Report</div>
+
+  <div class="tp-title">Predicting Story Points of Later Issues in a New Project using SBERT Sentence Embeddings</div>
+  <div class="tp-ps">Problem Statement 8 (PS-8): Sentence embeddings (SBERT) · Cross-project · Temporal ordering</div>
+
+  <div class="tp-by">Submitted by <b>Group 1</b></div>
+  <table class="tp-members">
+    <thead><tr><th>#</th><th>Name</th><th>Roll Number</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Amal Faris M</td><td>B230162CS</td></tr>
+      <tr><td>2</td><td>Richie James</td><td>B230519CS</td></tr>
+      <tr><td>3</td><td>Vedavyas S Poika</td><td>B230607CS</td></tr>
+      <tr><td>4</td><td>Muhammed Ismayil</td><td>B230434CS</td></tr>
+      <tr><td>5</td><td>Janardhan Abhiram Bojja</td><td>B230979CS</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tp-foot">
+    <b>GitHub repository:</b> <a href="{{GITHUB_URL}}">{{GITHUB_URL}}</a><br>
+    <b>Dataset:</b> TAWOS (https://doi.org/10.5522/04/21308124)<br>
+    November 2026
+  </div>
+</section>
+
+<!-- ============================== ABSTRACT + CONTENTS ============================== -->
+<h2 style="margin-top:0">Abstract</h2>
+<p>Agile teams give every task a <i>story point</i> value that shows how much effort it needs. In this project we tried
+to predict story points automatically from the text of a task. We used <b>SBERT</b> to turn each sentence of the task
+into a vector, and a small <b>three-layer CNN</b> to predict the story points from these vectors. The model is trained on
+one software project and tested on the <b>most recent issues of a different project</b>, for all 39 project pairs given
+in the guidelines.</p>
+<p>On the held-out test sets the model gets a mean absolute error (MAE) of <b>{{NUM:main:cnn.test_mae_mean_over_pairs:.2f}}</b>
+and a median absolute error (MdAE) of <b>{{NUM:main:cnn.test_mdae_mean_over_pairs:.2f}}</b> story points. This is almost
+the same as a simple baseline that always predicts the median story point of the training project (MAE
+{{NUM:main:median_baseline.test_mae_mean_over_pairs:.2f}}, MdAE {{NUM:main:median_baseline.test_mdae_mean_over_pairs:.2f}}).
+The model does beat this baseline inside its own training project, so it learns something from the text. That knowledge,
+however, does not carry over well to a new project, mainly because every team uses its own story point scale.</p>
+
+<h3>Contents</h3>
+<ul class="toc">
+  <li>1. Introduction</li>
+  <li>2. Background</li>
+  <li>3. Dataset</li>
+  <li>4. Methodology</li>
+  <li>5. Results</li>
+  <li>6. Discussion: best representation, explanations, limitations and threats to validity</li>
+  <li>7. Conclusion and what we learned</li>
+  <li>8. How to run the code</li>
+  <li>References · Appendix A: results for every project pair</li>
+</ul>
+
+<!-- ============================== 1 INTRODUCTION ============================== -->
+<h2>1. Introduction</h2>
+<p>In agile software development, work is split into small tasks called <b>issues</b> (or user stories). Before the
+team starts working, it estimates the effort of each issue in <b>story points</b>, a relative number such as 1, 2, 3,
+5 or 8. Good estimates help with planning, but they take time and depend on experience. Machine learning can help by
+predicting the story points directly from the issue's title and description. For example, from the text <i>“Fix the
+login failure when a user enters an incorrect password”</i> the model should output a number like 2.</p>
+<p>A model is most useful for a <b>new project</b> that does not have much history yet. Such a project has to use a
+model trained on <i>another</i> project. Also, in real life we always predict <i>future</i> issues using <i>past</i>
+data. Our problem statement combines both of these ideas.</p>
+
+<div class="box"><p><b>Problem statement (PS-8):</b> Evaluate SBERT-based sentence embeddings for predicting story
+points of later issues in a target project using chronological ordering.</p></div>
+
+<p>Our objectives were to:</p>
+<ol>
+  <li>Represent each issue using SBERT sentence embeddings.</li>
+  <li>Train a three-layer CNN on a <i>source</i> project and test it on the latest issues of a different <i>target</i>
+  project, for all 39 project pairs given in the guidelines.</li>
+  <li>Choose settings using five-fold validation on the training data only, and use the test data only once at the end.</li>
+  <li>Report MAE and MdAE, compare with simple baselines, and discuss the results and their limitations.</li>
+</ol>
+
+<!-- ============================== 2 BACKGROUND ============================== -->
+<h2>2. Background</h2>
+<h3>2.1 Sentence embeddings and SBERT</h3>
+<p>A computer cannot use text directly, so the text must be turned into numbers, called an <b>embedding</b>. Word
+embeddings (for example from BERT) give one vector per word. <b>Sentence embeddings</b> give one vector for a whole
+sentence. <b>SBERT</b> (Sentence-BERT, Reimers &amp; Gurevych, 2019) is a BERT model trained so that sentences with a
+similar meaning get similar vectors. We used the pre-trained SBERT model <code>all-mpnet-base-v2</code>, which turns any
+sentence into a vector of 768 numbers.</p>
+
+<h3>2.2 Cross-project and chronological evaluation</h3>
+<ul>
+  <li><b>Cross-project:</b> the model is trained on one project (the <i>source</i>) and tested on another project (the
+  <i>target</i>).</li>
+  <li><b>Chronological (temporal) ordering:</b> issues are sorted by their creation date, and the test set contains the
+  <i>latest</i> issues. This is more realistic than a random split, where the model could learn from issues created
+  after the ones it is tested on.</li>
+</ul>
+
+<h3>2.3 Evaluation metrics</h3>
+<p>If <i>y</i> is the true story point and <i>ŷ</i> the prediction, then <b>MAE = mean(|y − ŷ|)</b> and <b>MdAE =
+median(|y − ŷ|)</b>. Both are measured in story points, and lower is better. MdAE is less affected by a few very wrong
+predictions. We also compare against two simple <b>baselines</b> that do not read the text at all: always predicting the
+<b>median</b>, or the <b>mean</b>, story point of the training project. A useful model should beat these baselines.</p>
+
+<!-- ============================== 3 DATASET ============================== -->
+<h2>3. Dataset</h2>
+<p>We used the <b>TAWOS</b> dataset (Tawosi et al., MSR 2022). It contains issues from the Jira trackers of 39
+open-source agile projects of 12 organisations (such as Apache, Atlassian and MongoDB). It is shared as one large MySQL
+database file (637 MB zipped, 4.3 GB unzipped). Instead of installing MySQL, we wrote a Python script that reads the file
+directly and extracts only the tables we need (issues and projects). All 39 projects have story points, and they are
+exactly the 39 projects used in the guideline's project-pair list.</p>
+<p><b>Cleaning.</b> We removed issues that are not useful for learning effort:</p>
+<ul>
+  <li>Issues that were not completed (e.g. <i>Won't Fix</i>, <i>Duplicate</i>, still open), because their story points
+  do not reflect real work.</li>
+  <li>Issues with 0 story points, or more than 100 (clear data-entry mistakes; the largest value in the raw data was
+  26,710,114).</li>
+  <li>Exact duplicates.</li>
+</ul>
+<p>This left <b>51,777 issues</b> out of 65,427. The projects are very different in size, from 103 issues (Java driver)
+to 17,894 issues (Lsstcorp Data Management). They also use different story point scales: the typical issue is worth 1
+point in some projects and 5–8 points in others.</p>
+<p><b>Text.</b> For each issue we used the title plus the description. TAWOS also provides a version of the description
+without code snippets, which we used. We removed links and Jira formatting, and split the description into sentences.
+An issue has 6.8 sentences on average.</p>
+<p><b>Note on project names.</b> One name in the guideline pair list, “C++ driver (Appcelerator)”, does not exist in
+TAWOS. The only TAWOS project left unmatched is <i>Aptana Studio</i>, which belongs to the Appcelerator group of projects,
+so we used it for this name.</p>
+
+<!-- ============================== 4 METHODOLOGY ============================== -->
+<h2>4. Methodology</h2>
+<h3>4.1 Overall pipeline</h3>
+<div class="flow">
+  <div class="st">Issue<br>title + description</div><div class="ar">→</div>
+  <div class="st">Split into<br>sentences</div><div class="ar">→</div>
+  <div class="st">SBERT<br>(all-mpnet-base-v2)</div><div class="ar">→</div>
+  <div class="st">Matrix<br>24 × 768</div><div class="ar">→</div>
+  <div class="st">3-layer<br>CNN</div><div class="ar">→</div>
+  <div class="st">Predicted<br>story points</div>
+</div>
+<p class="tcap">Figure 1: Steps from issue text to a story point prediction.</p>
+
+<h3>4.2 Text representation with SBERT</h3>
+<p>Every issue is turned into a list of sentences: the title first, then the description sentences in order. We keep at
+most 24 sentences, which covers 97% of the issues. Each sentence goes through the SBERT model, which gives a 768-number
+vector. So every issue becomes a <b>24 × 768 matrix</b>; shorter issues are padded with zeros, and a mask tells the model
+which rows are real. The SBERT model itself is not trained further: we only use it to produce the vectors. Encoding all
+51,777 issues took about 6 minutes on our laptop GPU (NVIDIA RTX 4080).</p>
+
+<h3>4.3 The three-layer CNN</h3>
+<p>A 1-D convolutional neural network (CNN) reads the matrix. Each filter looks at <b>three neighbouring sentences at a
+time</b>, so it can use information that is spread over a few consecutive sentences rather than just one.</p>
+<table>
+  <thead><tr><th>Layer</th><th>Details</th><th>Output</th></tr></thead>
+  <tbody>
+    <tr><td>Input</td><td>SBERT vectors of up to 24 sentences</td><td>24 × 768</td></tr>
+    <tr><td>Convolution 1</td><td>256 filters, window of 3 sentences, ReLU, dropout</td><td>24 × 256</td></tr>
+    <tr><td>Convolution 2</td><td>128 filters, window of 3 sentences, ReLU, dropout</td><td>24 × 128</td></tr>
+    <tr><td>Convolution 3</td><td>64 filters, window of 3 sentences, ReLU</td><td>24 × 64</td></tr>
+    <tr><td>Pooling</td><td>max-pooling and average-pooling over the sentences, joined together</td><td>128</td></tr>
+    <tr><td>Output</td><td>fully connected layer (64 units, ReLU) followed by a single output neuron</td><td>1 story point value</td></tr>
+  </tbody>
+</table>
+<p class="tcap">Table 1: CNN architecture (about 0.72 million trainable parameters).</p>
+
+<h3>4.4 How we split the data</h3>
+<div class="split">
+  <div class="lab">Target project (sorted by creation date, oldest → newest)</div>
+  <div class="bar"><div class="b-unused" style="flex:8">earlier 80% — not used</div><div class="b-test" style="flex:2">TEST (latest 20%)</div></div>
+  <div class="lab">Source project = training data (sorted by date), split into 5 folds for validation</div>
+  <div class="bar"><div class="b-fold" style="flex:1">Fold 1</div><div class="b-fold" style="flex:1">Fold 2</div><div class="b-val" style="flex:1">Fold 3 = validation</div><div class="b-fold" style="flex:1">Fold 4</div><div class="b-fold" style="flex:1">Fold 5</div></div>
+</div>
+<p class="tcap">Figure 2: Data split for one project pair (shown for the run where fold 3 is the validation fold).</p>
+<ul>
+  <li><b>Test set:</b> the <b>latest 20%</b> of the target project's issues (an 80:20 chronological split). The model
+  never sees these issues during training or while we choose settings. The older 80% of the target project is not used
+  at all, so the model knows nothing about the target project.</li>
+  <li><b>Training data:</b> all issues of the source project, sorted by date and cut into <b>5 folds</b> of equal
+  size. In five runs, four folds are used for training and one for validation, so every fold is the validation fold
+  once.</li>
+  <li><b>Choosing the settings:</b> we tried four settings (learning rate 0.001 or 0.0003, dropout 0.2 or 0.5) and
+  picked the one with the lowest average validation MAE over the five folds.</li>
+  <li><b>Final model:</b> trained on all the source data with the chosen setting, then tested once on the test set. We
+  repeated this with three random seeds (42, 43, 44) and report the average.</li>
+</ul>
+
+<h3>4.5 Training settings</h3>
+<table>
+  <thead><tr><th>Setting</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Loss function</td><td>L1 loss (this is the same as the MAE, so the model directly minimises MAE)</td></tr>
+    <tr><td>Optimiser</td><td>AdamW, weight decay 0.0001, batch size 64</td></tr>
+    <tr><td>Learning rate / dropout</td><td>chosen per pair from {0.001, 0.0003} × {0.2, 0.5}</td></tr>
+    <tr><td>Epochs</td><td>up to 60, early stopping after 8 epochs without improvement on the validation fold</td></tr>
+    <tr><td>Random seeds</td><td>42 (validation), and 42, 43, 44 (final models)</td></tr>
+    <tr><td>Software / hardware</td><td>Python 3.13, PyTorch 2.11, sentence-transformers 6.2; NVIDIA RTX 4080 Laptop GPU</td></tr>
+  </tbody>
+</table>
+<p class="tcap">Table 2: Training settings. All of them are stored in <code>configs/config.yaml</code> in our repository.</p>
+<p>The complete experiment (39 pairs × 4 settings × 5 folds, plus the final models) took about <b>17 minutes</b> on
+the GPU.</p>
+
+<!-- ============================== 5 RESULTS ============================== -->
+<h2>5. Results</h2>
+<h3>5.1 Five-fold validation results</h3>
+<p>Validation is done on the source (training) project. Table 3 gives the average over the 39 pairs; the results for
+each pair are in Appendix A.</p>
+<table>
+  <thead><tr><th>Model</th><th>Validation MAE (mean ± std over 39 pairs)</th><th>Validation MdAE (mean ± std over 39 pairs)</th></tr></thead>
+  <tbody>
+    <tr><td>SBERT + CNN</td><td class="num">{{NUM:main:cnn.val_mae_mean_over_pairs:.2f}} ± {{NUM:main:cnn.val_mae_std_over_pairs:.2f}}</td><td class="num">{{NUM:main:cnn.val_mdae_mean_over_pairs:.2f}} ± {{NUM:main:cnn.val_mdae_std_over_pairs:.2f}}</td></tr>
+    <tr><td>Median baseline</td><td class="num">{{NUM:main:median_baseline_val_mae_mean_over_pairs:.2f}}</td><td>–</td></tr>
+  </tbody>
+</table>
+<p class="tcap">Table 3: Five-fold validation results on the training projects.</p>
+<p>Inside the training project, the model is better than the median baseline in
+<b>{{NUM:main:val_pairs_cnn_beats_median:}} of the 39 pairs</b>. Figure 3 shows the five fold scores for every pair. For
+most projects the folds are close to each other. A few projects with some very large story points (e.g. pair 11, Moodle)
+vary a lot.</p>
+{{FIG:main/figures/validation_folds.png|Figure 3: Validation MAE of each of the five folds (light dots) and their average (dark dot) for every pair.|100%}}
+
+<h3>5.2 Final test results</h3>
+<p>Table 4 is the main result in the format asked for in the guidelines. It shows the average over the 39 test sets
+(the latest 20% of each target project).</p>
+<table>
+  <thead><tr><th>Representation</th><th>Model configuration</th><th>MAE</th><th>MdAE</th></tr></thead>
+  <tbody>
+    <tr><td><b>SBERT sentence embeddings</b></td><td>all-mpnet-base-v2 (768-d, not fine-tuned), up to 24 sentences per issue → 3-layer 1-D CNN, L1 loss, AdamW; learning rate and dropout chosen by 5-fold validation; average of 3 seeds</td><td class="num"><b>{{NUM:main:cnn.test_mae_mean_over_pairs:.2f}}</b></td><td class="num"><b>{{NUM:main:cnn.test_mdae_mean_over_pairs:.2f}}</b></td></tr>
+    <tr><td>No text (baseline)</td><td>always predict the median story point of the source project</td><td class="num">{{NUM:main:median_baseline.test_mae_mean_over_pairs:.2f}}</td><td class="num">{{NUM:main:median_baseline.test_mdae_mean_over_pairs:.2f}}</td></tr>
+    <tr><td>No text (baseline)</td><td>always predict the mean story point of the source project</td><td class="num">{{NUM:main:mean_baseline.test_mae_mean_over_pairs:.2f}}</td><td class="num">{{NUM:main:mean_baseline.test_mdae_mean_over_pairs:.2f}}</td></tr>
+  </tbody>
+</table>
+<p class="tcap">Table 4: Held-out test results (average of the 39 project pairs; lower is better).</p>
+<p>Our model has the <b>lowest MdAE</b> and is better on average than the mean baseline. Its MAE, however, is about
+the same as the median baseline: it is better in {{NUM:main:statistics.0.MAE.cnn_wins:}} pairs and worse in
+{{NUM:main:statistics.0.MAE.cnn_losses:}}. We checked this with a Wilcoxon signed-rank test, which found no significant
+difference (p = {{NUM:main:statistics.0.MAE.wilcoxon_p:.2f}}). The results were stable across the three random seeds: the
+test MAE changed by only {{NUM:main:cnn.seed_std_mean_over_pairs:.2f}} story points on average.</p>
+{{FIG:main/figures/test_mae_per_pair_simple.png|Figure 4: Test MAE of our model (blue) and the median baseline (orange) for every project pair. Where only blue is visible, both are almost equal.|86%}}
+<p>Figure 4 shows that the error depends much more on <i>which pair</i> is tested than on the model. The best pair is
+C++ driver (MongoDB) → Java driver (MAE {{NUM:main:best_pair.cnn_test_mae_mean:.2f}}), where almost every issue is worth 1
+point. The worst is Software Cloud → Appcelerator Daemon (MAE {{NUM:main:worst_pair.cnn_test_mae_mean:.2f}}): the
+training project's typical issue is 3 points, but the test issues are usually 8 points.</p>
+
+<h3>5.3 Training project vs. new project</h3>
+{{FIG:main/figures/source_vs_target.png|Figure 5: Average MAE of our model and the median baseline on the training project (validation) and on the new project (test).|72%}}
+<p>Figure 5 summarises our most important observation. On the project it was trained on, the model is about
+{{NUM:main:val_rel_gain_vs_median_mean:.0%}} better than the median baseline. On a new project this advantage
+disappears.</p>
+
+<h3>5.4 Extra checks</h3>
+<ul>
+  <li><b>Validation that always looks forward in time.</b> In our five-fold validation, the model is sometimes trained on
+  issues that are newer than the validation issues. To check that this did not affect our choices, we also ran a
+  “forward-chaining” validation, where the model is always validated on newer issues. The average validation MAE was
+  almost the same ({{NUM:main:secondary_cv_mae_mean_over_pairs:.2f}} vs {{NUM:main:cnn.val_mae_mean_over_pairs:.2f}}).</li>
+  <li><b>Training only on issues older than the test issues.</b> We also tried using only those source issues that were
+  created before the target's test issues. This is possible for only {{NUM:main:compare_strict.n_common_pairs:}} of the
+  39 pairs; for the other 10, the source project is newer than the target. The model again performed the same as the
+  median baseline (MAE {{NUM:main:compare_strict.strict_test_mae_mean:.2f}} vs
+  {{NUM:main:compare_strict.strict_median_baseline_mae_mean:.2f}}).</li>
+</ul>
+
+<!-- ============================== 6 DISCUSSION ============================== -->
+<h2>6. Discussion</h2>
+<h3>6.1 Which representation achieves the lowest MAE and MdAE?</h3>
+<p>Our problem statement only covers SBERT sentence embeddings, so we compared SBERT + CNN with the two baselines.</p>
+<ul>
+  <li><b>Lowest MdAE: SBERT sentence embeddings + CNN</b> ({{NUM:main:cnn.test_mdae_mean_over_pairs:.2f}}). For a
+  typical issue, our model's error is the smallest.</li>
+  <li><b>Lowest MAE: the median baseline</b>, by a very small and not significant margin
+  ({{NUM:main:median_baseline.test_mae_mean_over_pairs:.2f}} vs {{NUM:main:cnn.test_mae_mean_over_pairs:.2f}}). If all
+  10,354 test issues are counted together instead of averaging per pair, our model has the lowest MAE
+  ({{NUM:main:cnn.pooled_test_mae:.2f}} vs {{NUM:main:median_baseline.pooled.0:.2f}}).</li>
+</ul>
+<p>We saved the exact train/test split of every pair in our repository (<code>results/splits/</code>). The groups
+working on BERT word embeddings (PS-4) and combined embeddings (PS-12) for the same setting can therefore compare with us
+on exactly the same test issues.</p>
+
+<h3>6.2 Possible explanations for the results</h3>
+<ol>
+  <li><b>Every team has its own story point scale.</b> “3 points” in one project can mean the same work as “8 points” in
+  another. The bigger the difference between the typical story point of the training and the test project, the bigger
+  the error (correlation r = {{NUM:main:corr_abs_median_sp_shift_vs_test_mae:.2f}}). A model that only reads text
+  cannot know the scale of a new team.</li>
+  <li><b>The text says only a little about effort.</b> Even inside one project, the model is only a little better than
+  the median. When the signal is this weak, the safest prediction for MAE is close to the median. In about half of the
+  pairs, the model learned to predict almost the same value for every issue.</li>
+  <li><b>SBERT captures meaning, not effort.</b> SBERT was trained to find sentences with similar meaning. Two issues can
+  be about very similar topics but need very different amounts of work, and we did not fine-tune SBERT for effort.</li>
+  <li><b>Projects change over time.</b> The test issues are the newest ones. Teams change how they estimate over the
+  years, which makes the newest issues harder to predict.</li>
+</ol>
+
+<h3>6.3 Limitations and threats to validity</h3>
+<ul>
+  <li><b>Story points are subjective.</b> They depend on each team, so comparing MAE between projects is not completely
+  fair. We report results for every pair as well as the average.</li>
+  <li><b>Small search for settings.</b> Because of limited time and compute, we tried only four settings. A larger
+  search, or fine-tuning SBERT, might give better results.</li>
+  <li><b>Small test sets.</b> Some test sets are very small (as few as 21 issues), so the results for those pairs are not
+  very reliable.</li>
+  <li><b>Validation folds.</b> In four of the five folds the model is trained on some newer issues. Our forward-chaining
+  check (Section 5.4) showed that this did not change the results much.</li>
+  <li><b>Our choices.</b> The cleaning rules and the mapping of “C++ driver (Appcelerator)” to Aptana Studio are our own
+  decisions. Different choices could change the numbers a little.</li>
+  <li><b>Generalisation.</b> We used only open-source projects with English text and one training project per test
+  project. The results may be different for company projects, or when training on several projects together.</li>
+</ul>
+
+<!-- ============================== 7 CONCLUSION ============================== -->
+<h2>7. Conclusion and what we learned</h2>
+<p>We built a complete pipeline that predicts story points from issue text using SBERT sentence embeddings and a
+three-layer CNN, and we evaluated it on 39 cross-project pairs with chronological splits. The model reaches a test MAE of
+{{NUM:main:cnn.test_mae_mean_over_pairs:.2f}} and MdAE of {{NUM:main:cnn.test_mdae_mean_over_pairs:.2f}} story points.
+That is about the same as always predicting the training project's median, but with a slightly lower median error. The
+model does learn useful information from the text inside its own project. When it moves to a new project, the
+difference in story point scales between teams cancels out this advantage.</p>
+<p><b>What we learned from this project:</b></p>
+<ul>
+  <li>Always compare with a simple baseline. Our model looked good on its own, but the median baseline showed that most
+  of the work was done by predicting typical values.</li>
+  <li>How the data is split matters a lot. Chronological, cross-project testing is much harder (and more honest) than a
+  random split inside one project.</li>
+  <li>A good validation score on one project does not guarantee good results on another project.</li>
+  <li>Real datasets need careful cleaning. We found story points as large as 26 million.</li>
+</ul>
+<p><b>Future work:</b> use a few labelled issues of the new project to adjust the story point scale; train on several
+source projects together; fine-tune SBERT for effort estimation; and combine sentence embeddings with BERT word
+embeddings.</p>
+
+<!-- ============================== 8 HOW TO RUN ============================== -->
+<h2>8. How to run the code</h2>
+<p>All code, settings and results are in our GitHub repository (link on the first page). After installing the
+requirements (see <code>README.md</code>), the full experiment can be repeated with one command, and the demo predicts
+story points for any text:</p>
+<pre>.\run_all.ps1          # full experiment, about 40 minutes on a GPU
+
+python demo.py --tag demo --pair 1 --title "Fix login failure" \
+       --description "The login fails when a user enters an incorrect password."</pre>
+
+<h2>References</h2>
+<ol>
+  <li>V. Tawosi, A. Al-Subaihin, R. Moussa, F. Sarro. A Versatile Dataset of Agile Open Source Software Projects. MSR 2022.</li>
+  <li>N. Reimers, I. Gurevych. Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. EMNLP 2019.</li>
+  <li>M. Choetkiertikul et al. A Deep Learning Model for Estimating Story Points. IEEE Transactions on Software Engineering, 2019.</li>
+  <li>V. Tawosi, R. Moussa, F. Sarro. Deep Learning for Agile Effort Estimation: Have We Solved the Problem Yet? IEEE Transactions on Software Engineering, 2023.</li>
+  <li>Y. Kim. Convolutional Neural Networks for Sentence Classification. EMNLP 2014.</li>
+</ol>
+
+<!-- ============================== APPENDIX ============================== -->
+<section class="appendix" style="break-before: page;">
+<h2 style="margin-top:0">Appendix A: Results for every project pair</h2>
+<p>Train issues = issues of the source project. Test issues = latest 20% of the target project. 5-fold val. MAE = mean
+± standard deviation over the five validation folds. Test values are the average of the three seeds.</p>
+{{TABLE:main/tables/per_pair_simple.csv}}
+</section>
+
+</body>
+</html>

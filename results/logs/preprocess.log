@@ -1,0 +1,32 @@
+2026-11-10 17:42:47 | INFO | TAWOS issues with a story point                 65427
+2026-11-10 17:42:47 | INFO | in the 39 assigned projects                     65427
+2026-11-10 17:42:47 | INFO | resolution = completed work                     53759
+2026-11-10 17:42:47 | INFO | 0 < story point <= 100                          51854
+2026-11-10 17:42:47 | INFO | non-empty title                                 51854
+2026-11-10 17:42:47 | INFO | after removing exact duplicates                 51639
+2026-11-10 17:42:47 | INFO | sentences/issue: mean 6.8, median 4, p90 13, p95 19, share <= 24: 0.971
+2026-11-10 17:42:47 | INFO | saved 51639 issues of 39 projects -> C:\Users\abhir\PS8-SBERT-StoryPoint-Estimation\data\processed\issues.parquet
+2026-11-10 17:43:28 | INFO | TAWOS issues with a story point                 65427
+2026-11-10 17:43:28 | INFO | in the 39 assigned projects                     65427
+2026-11-10 17:43:28 | INFO | completed work (resolution or done-status)      53901
+2026-11-10 17:43:28 | INFO | 0 < story point <= 100                          51992
+2026-11-10 17:43:28 | INFO | non-empty title                                 51992
+2026-11-10 17:43:28 | INFO | after removing exact duplicates                 51777
+2026-11-10 17:43:28 | INFO | sentences/issue: mean 6.8, median 4, p90 13, p95 19, share <= 24: 0.971
+2026-11-10 17:43:28 | INFO | saved 51777 issues of 39 projects -> C:\Users\abhir\PS8-SBERT-StoryPoint-Estimation\data\processed\issues.parquet
+2026-11-10 18:16:54 | INFO | TAWOS issues with a story point                 65427
+2026-11-10 18:16:54 | INFO | in the 39 assigned projects                     65427
+2026-11-10 18:16:54 | INFO | completed work (resolution or done-status)      53901
+2026-11-10 18:16:54 | INFO | 0 < story point <= 100                          51992
+2026-11-10 18:16:54 | INFO | non-empty title                                 51992
+2026-11-10 18:16:54 | INFO | after removing exact duplicates                 51777
+2026-11-10 18:16:54 | INFO | sentences/issue: mean 6.8, median 4, p90 13, p95 19, share <= 24: 0.971
+2026-11-10 18:16:54 | INFO | saved 51777 issues of 39 projects -> C:\Users\abhir\PS8-SBERT-StoryPoint-Estimation\data\processed\issues.parquet
+2026-11-10 18:26:46 | INFO | TAWOS issues with a story point                 65427
+2026-11-10 18:26:46 | INFO | in the 39 assigned projects                     65427
+2026-11-10 18:26:46 | INFO | completed work (resolution or done-status)      53901
+2026-11-10 18:26:46 | INFO | 0 < story point <= 100                          51992
+2026-11-10 18:26:46 | INFO | non-empty title                                 51992
+2026-11-10 18:26:46 | INFO | after removing exact duplicates                 51777
+2026-11-10 18:26:46 | INFO | sentences/issue: mean 6.8, median 4, p90 13, p95 19, share <= 24: 0.971
+2026-11-10 18:26:46 | INFO | saved 51777 issues of 39 projects -> C:\Users\abhir\PS8-SBERT-StoryPoint-Estimation\data\processed\issues.parquet
